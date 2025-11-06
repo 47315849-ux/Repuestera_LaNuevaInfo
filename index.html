@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Repuestera La Nueva</title>
+
+  <style>
+    body { background-color:#444; margin:0; font-family: Arial, sans-serif; color:beige; }
+    .marquee { background:#2d2727; padding:6px 0; text-align:center; font-size:14px; }
+    .encabezado { display:flex; justify-content:space-between; align-items:center;/* alineo todo y mando imagen a la izquierda y rnlaces a la derecha*/
+                background-color:#121212; background-size:cover; /* aca agrego el fondo del ecabezado */
+                background-position:center; padding:24px 18px; border-radius:12px; }/* como el fondo es una imagen yo aqui lo posiciono y redondeo las puntas */
+    .logo img { border-radius:8px; display:block; }/* .logo img es la imagen del encabezado,tambien redondeamos las puntas */
+    .menu a { color:white; text-decoration:none; margin-left:18px; font-weight:700; }
+    .menu a:hover { color:#ff4d4d; transform:translateY(-2px); }/* aca cambia de color el menu cuando pasas el mouse por encima */
+    /* --- Hero / encabezado principal --- */
+    .hero { max-width:1200px; margin:28px auto; padding:24px; text-align:center; background:rgba(0,0,0,0.25); border-radius:10px; }
+    .hero h1 { font-size:52px; margin:6px 0; letter-spacing:1px; }
+    .hero p { font-size:18px; line-height:1.5; margin:10px auto; max-width:900px; }
+    .hero .cta { margin-top:14px; display:inline-block; padding:12px 20px; background:#ff4d4d; color:white; border-radius:8px; text-decoration:none; font-weight:700; }
+    /* --- Galería principal: grid en vez de uno debajo del otro --- */
+    .galeria-principal { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; max-width:1200px; margin:18px auto; padding:0 12px; }
+    .galeria-principal img { width:100%; height:300px; object-fit:cover; border-radius:10px; box-shadow:0 6px 12px rgba(0,0,0,.5); }
+    /* --- Carrusel --- */
+    #carousel { max-width:600px; margin:32px auto; position:relative; border-radius:10px; overflow:hidden; }
+    #carousel .slide { display:none; text-align:center; padding:12px; background:rgba(0,0,0,0.2); }
+    #carousel .slide.active { display:block; }
+    #carousel img { width:100%; height:auto; border-radius:8px; }
+    .carousel-controls { text-align:center; margin-top:8px; }
+    .carousel-btn { background:#222; color:beige; border:none; padding:10px 16px; margin:6px; border-radius:8px; cursor:pointer; }
+    .carousel-btn:hover { background:#ff4d4d; color:white; }
+    /* --- Footer (mantener menor tamaño) --- */
+    footer { background:#121212; color:#ccc; padding:18px 0; margin-top:36px; }
+    @media (max-width:600px){ .hero h1{font-size:32px} .galeria-principal img{height:200px} }
+  </style>
+  </head>
+  <body>
+  <div class="marquee">⭐ BIENVENIDO A NUESTRO NUEVO SITIO WEB ⭐</div>
+  <div class="encabezado">
+    <div class="logo"><img src="/imagenes/logorepuestera2.jpeg" width="130" height="100" alt="Logo Repuestera"></div>
+    <div style="font-size:48px; text-align:center;">REPUESTERA LA NUEVA</div>
+    <div class="menu">
+      <a href="/paginas/administrador.php">Administrador</a>
+      <a href="/paginas/Nosotros.html">Nosotros</a>
+      <a href="/paginas/productos.html">Productos</a>
+      <a href="/paginas/contacto.html">Ubicación</a>
+    </div>
+  </div>
+  <section class="hero">
+    <h1>Distribuidora de Iluminación y Accesorios</h1>
+    <p>Venta mayorista y minorista — más de 10 años de experiencia. Productos de calidad, atención personalizada y envíos por mayor a diversas localidades.</p>
+    <p style="font-size:20px; color:brown; font-weight:bold;">
+  ¡Calidad, confianza y experiencia a tu servicio!
+</p>
+  </section>
+  <section class="galeria-principal">
+    <img src="/imagenes/muestra2.jpeg" alt="Muestra 2 - Productos de limpieza" loading="lazy">
+    <img src="imagenes/muestra1.jpeg" alt="Muestra 1 - Iluminación" loading="lazy">
+    <img src="/imagenes/muestra3.jpeg" alt="Muestra 3 - Más productos" loading="lazy">
+  </section>
+  <center><p style="font-size:28px; margin-top:20px;"><b>Estos son algunos de nuestros productos</b></p></center>
+  <div id="carousel">
+    <div class="slide active">
+      <img src="imagenes/ofertaPulverizador.jpeg" alt="Pulverizador" loading="lazy">
+      <p style="color:beige;">Pulverizador</p>
+    </div>
+    <div class="slide">
+      <img src="/imagenes/ofertaProbador.jpeg" alt="Tester Portátil" loading="lazy">
+      <p style="color:beige;">Tester Portátil</p>
+    </div>
+    <div class="slide">
+      <img src="/imagenes/ofertaBomba.jpeg" alt="Bomba de combustible" loading="lazy">
+      <p style="color:beige;">Bomba de Combustible</p>
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" onclick="prev()">&#10094; Atrás</button>
+    <button class="carousel-btn" onclick="next()">Siguiente &#10095;</button>
+  </div>
+  <footer>
+    <center>
+      <b>Redes Sociales</b><br>
+      <a href="https://www.instagram.com/lanueva.repuestera"><img src="/imagenes/instagram.jpeg" width="80" height="60" style="margin:10px;" alt="Instagram"></a>
+      <a href="https://www.facebook.com/La_Nueva_Repuestera"><img src="/imagenes/facebook.jpeg" width="80" height="60" style="margin:10px;" alt="Facebook"></a>
+      <a href="tel:3888653765"><img src="/imagenes/contacto.jpeg" width="80" height="60" style="margin:10px;" alt="Contacto"></a>
+    </center>
+    <div style="background-color:#181818; padding:20px; text-align:center;">
+      <p style="font-size:16px; color:#ddd;">Medios de pago:</p>
+      <img src="/imagenes/bbva.jpeg" style="width:40px; margin:5px;" alt="BBVA">
+      <img src="/imagenes/MasterCard.jpeg" style="width:40px; margin:5px;" alt="Mastercard">
+      <img src="/imagenes/mercadoPago.jpeg" style="width:40px; margin:5px;" alt="Mercado Pago">
+      <img src="/imagenes/efectivo.jpeg" style="width:40px; margin:5px;" alt="Efectivo">
+      <p style="color:#ccc; margin-top:12px;">Más de 20 años brindando repuestos de calidad.</p>
+      <p style="color:#ccc;">Envíos a todo el país y atención personalizada.</p>
+      <p style="border-top:1px solid #444; padding-top:10px; color:#aaa; font-size:13px;">
+        © 2025 Repuestera La Nueva | Desarrollado por <strong>Gaspar Gastón y Fabricio Sanchez</strong>
+      </p>
+    </div>
+  </footer>
+  <script>
+    // --- Script del carrusel con autoplay cada 3 segundos ---
+    let slides = document.querySelectorAll('#carousel .slide');
+    let current = 0;
+    function show(n){ slides.forEach(s=>s.classList.remove('active')); slides[n].classList.add('active'); }
+    function next(){ current = (current + 1) % slides.length; show(current); }
+    function prev(){ current = (current - 1 + slides.length) % slides.length; show(current); }
+    setInterval(next, 3000);
+  </script>
+</body>
+</html>
